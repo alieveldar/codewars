@@ -71,12 +71,21 @@ if i == 4
 
 end
 end
+for i in 0..words_arr.length
+  phrase << words_arr[i]
+  if (words_arr[i] != words_arr.last) && (words_arr[i] != words_arr.length - 2)
+  phrase << ","
+  elsif i == (words_arr.length) - 2 
+    phrase << "and"
+  end
+end
+    
 
 
 
-print words_arr
+print phrase
 #print mass_times
 
 end
-seconds = 3600
+seconds = 3662
 format_duration(seconds)
