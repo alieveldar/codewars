@@ -6,82 +6,77 @@ def format_duration(seconds)
 	days = time.day - 1
 	years = time.year - 1970
 
-	#puts sec  
-	#puts minuts
-	#puts hours
-	#puts days
-	#puts years
-	w_year = " "
-	w_day = " "
-	w_hour = " "
-	w_min = " "
-	w_sec = " "
-	mass_times = [years, days, hours, minuts, sec]
-	words_arr = []
-	
- for i in 0..4
-	if i == 0
-		if mass_times[i] == 0
-			w_year = ""
-		elsif mass_times[i] == 1
-			w_year = "#{mass_times[i]} year"
-		elsif mass_times[i] > 1
-			w_year = "#{mass_times[i]} years"
-		end
-	end
-	if i == 1
-		if mass_times[i] == 0
-			w_day = ""
-		elsif mass_times[i] == 1
-			w_day = "#{mass_times[i]} day"
-		elsif mass_times[i] > 1
-			w_day = "#{mass_times[i]} days"
-		end
-	end
-	if i == 2
-		if mass_times[i] == 0
-			w_hour = " "
-		elsif mass_times[i] == 1
-			w_hour = "#{mass_times[i]} hour"
-		elsif mass_times > 1
-			w_hour = "#{mass_times[i]} hours"
-		end
-	end
-	if i == 3
-		if mass_times[i] == 0
-			w_min = " "
-		elsif mass_times[i] == 1
-			w_min = "minute"
-		elsif mass_times[i] > 1
-			w_min = "minutes"
-		end
-	end
-	if i == 4
-		if mass_times[i] == 0
-			w_sec = " "
-		elsif mass_times[i] == 1
-			w_sec = "secund"
-		elsif mass_times[i] > 1
-			w_sec = "seconds"
-		end
-	end
 
-    
-	end
-  
+  w_year = ""
+  w_day  = ""
+  w_hour = ""
+  w_min  = ""
+  w_sec  = ""
+  mass_times = [years, days, hours, minuts, sec]
+  words_arr = []
+  phrase = []
 
+  for i in 0..4
+   if i == 0
+    if mass_times[i] == 0
+     w_year = "empty"
+   elsif mass_times[i] == 1
+     w_year = "#{mass_times[i]} year"
+   elsif mass_times[i] > 1
+     w_year = "#{mass_times[i]} years"
+   end
+   words_arr << w_year
+ end
+ if i == 1
+  if mass_times[i] == 0
+   w_day = "empty"
+ elsif mass_times[i] == 1
+   w_day = "#{mass_times[i]} day"
+ elsif mass_times[i] > 1
+   w_day = "#{mass_times[i]} days"
+ end
+ words_arr << w_day
+end
+if i == 2
+  if mass_times[i] == 0
+   w_hour = "empty"
+ elsif mass_times[i] == 1
+   w_hour = "#{mass_times[i]} hour"
+ elsif mass_times > 1
+   w_hour = "#{mass_times[i]} hours"
+ end
+ words_arr << w_hour
+end
+if i == 3
+  if mass_times[i] == 0
+   w_min = "empty"
+ elsif mass_times[i] == 1
+   w_min = "#{mass_times[i]} minute"
+ elsif mass_times[i] > 1
+   w_min = "#{mass_times[i]} minutes"
+ end
+ words_arr << w_min
+end
+if i == 4
+  if mass_times[i] == 0
+   w_sec = "empty"
+ elsif mass_times[i] == 1
+   w_sec = "#{mass_times[i]} secund"
+ elsif mass_times[i] > 1
+   w_sec = "#{mass_times[i]} seconds"
+ end
+ words_arr << w_sec
+ words_arr.delete_if { |w| w == "empty" }
 
-
-
-
-
-
-
-
-
-
-print mass_times
 
 end
-seconds = 120
+end
+
+
+
+print words_arr
+#print mass_times
+
+end
+seconds = 3600
 format_duration(seconds)
