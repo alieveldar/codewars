@@ -1,10 +1,11 @@
 def format_duration(seconds)
-  time = Time.at(seconds)
-  sec = time.sec
-  hours = time.hour - 3
-  minuts = time.min
-  days = time.day - 1
-  years = time.year - 1970
+  
+	time = Time.at(seconds.to_i)
+	sec = time.sec
+	hours = time.hour - 3
+	minuts = time.min
+	days = time.day - 1
+	years = time.year - 1970
   w_year = ""
   w_day  = ""
   w_hour = ""
@@ -71,10 +72,10 @@ end
 end
 curl = words_arr.count - 1
 for i in 0..curl
-  if i != curl && i != curl - 1
+  if (i != curl) && (i != curl - 1)
     phrase << words_arr[i] 
     phrase << ", "
-  elsif i == curl - 1
+  elsif i == (curl - 1)
     phrase << words_arr[i]
     phrase << " and "
   elsif i == curl
@@ -82,4 +83,4 @@ for i in 0..curl
   end
 end
 return phrase.join
-end
+endpry
